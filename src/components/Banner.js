@@ -7,10 +7,10 @@ const Banner = (props) => (
                 <h1>Welcome to Sunny Crest!</h1>
             </header>
             <div className="content">
-                <p>Images and resources for a historic farm<br />
+                <p>A historic farm homestead<br />
                 located near Raub, Indiana</p>
                 <ul className="actions">
-                    <li><a href="#one" className="button next scrolly">Explore</a></li>
+                    <li><a href="#one" className="button next scrolly">The farm buildings</a></li>
                 </ul>
             </div>
         </div>

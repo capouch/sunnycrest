@@ -9,6 +9,8 @@ import pic03 from '../assets/images/pic03.jpg'
 import pic04 from '../assets/images/pic04.jpg'
 import pic05 from '../assets/images/pic05.jpg'
 import pic06 from '../assets/images/pic06.jpg'
+import pic12 from '../assets/images/pic12.jpg'
+import pic13 from '../assets/images/pic13.jpg'
 
 class HomeIndex extends React.Component {
     render() {
@@ -64,7 +66,21 @@ class HomeIndex extends React.Component {
                         <article style={{backgroundImage: `url(${pic06})`}}>
                             <header className="major">
                                 <h3>Oil House</h3>
-                                <p>Keep the volatiles away from burnables</p>
+                                <p>Keep the volatiles away from the burnables</p>
+                            </header>
+                            <Link to="/landing" className="link primary"></Link>
+                        </article>
+                        <article style={{backgroundImage: `url(${pic12})`}}>
+                            <header className="major">
+                                <h3>Outhouse</h3>
+                                <p>An actual brick shithouse</p>
+                            </header>
+                            <Link to="/landing" className="link primary"></Link>
+                        </article>
+                        <article style={{backgroundImage: `url(${pic13})`}}>
+                            <header className="major">
+                                <h3>Post-and-beam-shed</h3>
+                                <p>Hand-hewn logs and beams</p>
                             </header>
                             <Link to="/landing" className="link primary"></Link>
                         </article>

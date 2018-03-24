@@ -10,7 +10,7 @@ const Banner = (props) => (
                 <p>A historic farm homestead<br />
                 located near Raub, Indiana</p>
                 <ul className="actions">
-                    <li><a href="#one" className="button next scrolly">The farm buildings</a></li>
+                    <li><a href="#one" className="button next scrolly">The farm structures</a></li>
                 </ul>
             </div>
         </div>

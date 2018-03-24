@@ -30,7 +30,7 @@ class HomeIndex extends React.Component {
                     <section id="one" className="tiles">
                         <article style={{backgroundImage: `url(${pic01})`}}>
                             <header className="major">
-                                <h3>Brick House</h3>
+                                <h3>Main House</h3>
                                 <p>Built in 1915 by Josiah and Stella Portteus</p>
                             </header>
                             <Link to="/landing" className="link primary"></Link>
@@ -79,7 +79,7 @@ class HomeIndex extends React.Component {
                         </article>
                         <article style={{backgroundImage: `url(${pic13})`}}>
                             <header className="major">
-                                <h3>Post-and-beam-shed</h3>
+                                <h3>Post-and-beam shed</h3>
                                 <p>Hand-hewn logs and beams</p>
                             </header>
                             <Link to="/landing" className="link primary"></Link>

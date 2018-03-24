@@ -4,7 +4,9 @@ const Contact = (props) => (
     <section id="contact">
         <div className="inner">
             <section>
+                { /* Added netlify form foo to form attribute */ }
                 <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                    { /* This is also required for netlify */ }
                     <input type="hidden" name="form-name" value="contact" />
                     <div className="field half first">
                         <label htmlFor="name">Name</label>

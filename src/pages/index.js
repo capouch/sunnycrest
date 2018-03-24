@@ -11,6 +11,8 @@ import pic05 from '../assets/images/pic05.jpg'
 import pic06 from '../assets/images/pic06.jpg'
 import pic12 from '../assets/images/pic12.jpg'
 import pic13 from '../assets/images/pic13.jpg'
+import pic14 from '../assets/images/pic14.jpg'
+
 
 class HomeIndex extends React.Component {
     render() {
@@ -84,6 +86,13 @@ class HomeIndex extends React.Component {
                             </header>
                             <Link to="/landing" className="link primary"></Link>
                         </article>
+                        <article style={{backgroundImage: `url(${pic14})`}}>
+                            <header className="major">
+                                <h3>Entrance columns</h3>
+                                <p>Only one stands - All six are on site</p>
+                            </header>
+                            <Link to="/landing" className="link primary"></Link>
+                        </article>
                     </section>
                     <section id="two">
                         <div className="inner">
@@ -92,7 +101,7 @@ class HomeIndex extends React.Component {
                             </header>
                             <p>We are in the process of assessing and stabilizing the various buildings and substructures.  Once the brick house is habitable, we will be looking for motivated interns to help with the project</p>
                             <ul className="actions">
-                                <li><Link to="/landing" className="button next">Explore</Link></li>
+                                <li><a href="https://photos.app.goo.gl/KalJWFjSE86sfYb02" className="button next" target="_blank">Explore photos</a></li>
                             </ul>
                         </div>
                     </section>

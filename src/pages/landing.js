@@ -22,7 +22,7 @@ const Landing = (props) => (
                     <header className="major">
                         <h2>You will like this farm . . </h2>
                     </header>
-                    <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
+                    <p>For over a hundred years, Sunny Crest was owned by a succession of members of the Portteus family.  The brick Craftsman Foursquare was built by Josiah Lowes and Stella Shonkwiler Portteus in 1915.  When they built it, they moved the original house on the property about fifty yards west, and converted into a shop and garage.  Today most of the farm structures remain.</p>
                 </div>
             </section>
             <section id="two" className="spotlights">

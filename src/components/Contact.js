@@ -4,7 +4,8 @@ const Contact = (props) => (
     <section id="contact">
         <div className="inner">
             <section>
-                <form method="post" action="#">
+                <form name="contact" method="post" netlify>
+                    <input type="hidden" name="form-name" value="contact" />
                     <div className="field half first">
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" id="name" />
@@ -28,7 +29,7 @@ const Contact = (props) => (
                     <div className="contact-method">
                         <span className="icon alt fa-envelope"></span>
                         <h3>Email</h3>
-                        <a href="#">brianc@palaver.net</a>
+                        <a href="mailto:brianc@palaver.net">brianc@palaver.net</a>
                     </div>
                 </section>
                 <section>

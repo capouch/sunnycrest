@@ -7,8 +7,8 @@ const BannerLanding = (props) => (
                 <h1>Soon there will be content!!</h1>
             </header>
             <div className="content">
-                <p>This is the generic copy, which is all you will get for
-                the short run when you click on any of the building links.  But check back soon!</p>
+                <p>Holding on to some template pages for a while . . . 
+                Check back soon!</p>
             </div>
         </div>
     </section>

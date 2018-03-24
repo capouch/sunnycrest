@@ -10,7 +10,8 @@ const Banner = (props) => (
                 <p>A historic farm homestead<br />
                 located near Raub, Indiana</p>
                 <ul className="actions">
-                    <li><a href="#one" className="button next scrolly">The farm structures</a></li>
+                    { /* I need to find the fix for Atom's parser's "quote bug" */ }
+                    <li><a href="#one" className="button next scrolly">The farm's structures</a></li>
                 </ul>
             </div>
         </div>

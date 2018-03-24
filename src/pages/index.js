@@ -35,63 +35,63 @@ class HomeIndex extends React.Component {
                                 <h3>Main House</h3>
                                 <p>Built in 1915 by Josiah and Stella Portteus</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/main-house" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
                             <header className="major">
                                 <h3>Old House</h3>
                                 <p>Age unknown, ca. 1860</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/old-house" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic03})`}}>
                             <header className="major">
                                 <h3>Barn</h3>
                                 <p>Classy new roof!</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/barn" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic04})`}}>
                             <header className="major">
                                 <h3>Chicken House</h3>
                                 <p>Ready for birds!</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/chicken-house" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic05})`}}>
                             <header className="major">
                                 <h3>Cob House</h3>
                                 <p>Stored corncobs for cookstove</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/cob-house" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic06})`}}>
                             <header className="major">
                                 <h3>Oil House</h3>
                                 <p>Keep the volatiles away from the burnables</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/oil-house" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic12})`}}>
                             <header className="major">
                                 <h3>Outhouse</h3>
                                 <p>An actual brick shithouse</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/outhouse" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic13})`}}>
                             <header className="major">
                                 <h3>Post-and-beam shed</h3>
                                 <p>Hand-hewn logs and beams</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/log-shed" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic14})`}}>
                             <header className="major">
                                 <h3>Entrance columns</h3>
                                 <p>Only one stands - All six are on site</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/entrance" className="link primary"></Link>
                         </article>
                     </section>
                     <section id="two">

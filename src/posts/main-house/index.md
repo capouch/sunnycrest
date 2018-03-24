@@ -1,6 +1,5 @@
 ---
 title: Main House
-date: "2018-03-23T22:12:03.284Z"
 path: "/main-house/"
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Entrance Columns
-date: "2018-03-23T23:46:37.121Z"
 path: "/entrance/"
 ---
 

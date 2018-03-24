@@ -1,6 +1,5 @@
 ---
 title: The Old House
-date: "2018-03-23T22:40:32.169Z"
 path: "/old-house/"
 ---
 

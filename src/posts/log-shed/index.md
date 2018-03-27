@@ -19,3 +19,6 @@ We are investigating the possible implications of those notches, and hope they w
 <center>
 Josiah Portteus's cousin Lewis E. Maddock tagged this wall ca. 1875
 </center>
+<center>
+Note the backwards "DD"
+</center>

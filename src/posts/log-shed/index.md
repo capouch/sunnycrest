@@ -9,7 +9,7 @@ The long sills have regularly spaced notches on either side, which match up perf
 
 We are investigating the possible implications of those notches, and hope they will serve as clues as to the original purpose for which this structure was built.
 
-![Log Shed](./logShed.jpg)
+![Log Shed](./maddockTag.jpg)
 <center>
-The framing for this building is made of hewn logs
+Josiah Portteus's cousin Lewis E. Maddock tagged this wall ca. 1875
 </center>

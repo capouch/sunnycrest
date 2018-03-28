@@ -7,7 +7,7 @@ const BannerLanding = (props) => (
                 <h1>Soon there will be content!!</h1>
             </header>
             <div className="content">
-                <p>Holding on to some template pages for a while . . . 
+                <p>Working hard to put together an architectural description 
                 Check back soon!</p>
             </div>
         </div>

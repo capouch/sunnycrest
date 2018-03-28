@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import BannerLanding from '../components/BannerLanding'
 
 import pic08 from '../assets/images/pic08.jpg'
+import pic09 from '../assets/images/pic09.jpg'
 
 const Landing = (props) => (
     <div>
@@ -24,22 +25,35 @@ const Landing = (props) => (
                 </div>
             </section>
             <section id="two" className="spotlights">
-            <section>
-                  <Link to="/#" className="image">
-                      <img src={pic08} alt="" />
-                  </Link>
-                  <div className="content">
-                      <div className="inner">
-                          <header className="major">
-                              <h3>What would you call this?</h3>
-                          </header>
-                          <p>The original roof on the house was slate.  For unknown reasons, it failed and was replaced in the 1980s.  The owner arranged to have the affordance you see here re-installed after the replacement.  What in the world is it called?</p>
-                          <ul className="actions">
-                              <li><Link to="/mission" className="button">Our mission</Link></li>
-                          </ul>
+              <section>
+                    <Link to="/#" className="image">
+                        <img src={pic08} alt="" />
+                    </Link>
+                    <div className="content">
+                        <div className="inner">
+                            <header className="major">
+                                <h3>What would you call this?</h3>
+                            </header>
+                            <p>The original roof on the house was slate.  For unknown reasons, it failed and was replaced in the 1980s.  The owner arranged to have the affordance you see here re-installed after the replacement.  What in the world is it called?</p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                      <Link to="/#" className="image">
+                          <img src={pic09} alt="" />
+                      </Link>
+                      <div className="content">
+                          <div className="inner">
+                              <header className="major">
+                                  <h3>Hand-painted plaster walls!</h3>
+                              </header>
+                              <p>The plaster walls of the main room were painted by local artisans, the Diedams.  The walls were refurbished ahead of Josiah and Stella Portteus's 50th wedding anniversary in 1946.</p>
+                              <ul className="actions">
+                                  <li><Link to="/mission" className="button">Our mission</Link></li>
+                              </ul>
+                          </div>
                       </div>
-                  </div>
-              </section>
+                  </section>
             </section>
         </div>
 

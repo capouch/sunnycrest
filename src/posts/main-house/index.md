@@ -14,7 +14,11 @@ The home has many features.
 * Handmade leaded-glass cabinets and bookcases
 * Over 5000 square feet with semi-finished attic and full basement
 * Lined chimney flues
+* Large sleeping porch with entrance from master bedroom
+* Built-in storage in bedroom closets
 * Laundry chute
 * "Extra-mass" bathroom with mosaic floor, fancy fixtures, and subway tiles
+
+The house has suffered in recent years, but retains almost all of its original features.  The biggest threat it faces at present is a leaky roof, which has damaged the plaster, some of the woodwork, and to a lesser extent the floors of the areas below the leaks.  
 
 ![Main House](./mainHouse.jpg)

@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Sunny Crest",
     author: "Brian Capouch",
-    description: "A site dedicated to the restoration of the farm"
+    description: "A site dedicated to the restoration of Sunny Crest"
   },
   pathPrefix: '/',
   plugins: [

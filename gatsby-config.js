@@ -61,10 +61,18 @@ module.exports = {
         ],
       },
     },
+    {
+    resolve: `gatsby-plugin-offline`,
+      options: {
+        importScripts: [
+          `./test.js`
+        ],
+        cacheId: `sunnycrest-offline`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-offline`
   ],
 }

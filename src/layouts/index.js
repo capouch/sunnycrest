@@ -18,10 +18,18 @@ class Template extends React.Component {
         this.handleToggleMenu = this.handleToggleMenu.bind(this)
     }
 
+
     componentDidMount () {
         this.timeoutId = setTimeout(() => {
             this.setState({loading: ''});
         }, 100);
+        // Still looking for the right place for this
+        // This ain't it, for sure
+        Notification.requestPermission(function(status) {
+        let permStatus = status;
+        console.log('Notification permission status:', status);
+});
+
     }
 
     componentWillUnmount () {
@@ -38,7 +46,6 @@ class Template extends React.Component {
 
     render() {
         const { children } = this.props
-
         return (
             <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
                 <Helmet>

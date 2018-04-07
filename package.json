@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Hunter Chang",
   "dependencies": {
+    "base-64": "^0.1.0",
     "gatsby": "^1.9.235",
     "gatsby-cli": "^1.1.48",
     "gatsby-image": "^1.0.42",

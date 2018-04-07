@@ -4,11 +4,11 @@ import Helmet from 'react-helmet'
 
 import pic11 from '../assets/images/pic11.jpg'
 
-const Generic = (props) => (
+const Mission = (props) => (
     <div>
         <Helmet>
             <title>Mission - Sunny Crest</title>
-            <meta name="description" content="Generic Page" />
+            <meta name="description" content="Mission Page" />
         </Helmet>
 
         <div id="main" className="alt">
@@ -26,4 +26,4 @@ const Generic = (props) => (
     </div>
 )
 
-export default Generic
+export default Mission

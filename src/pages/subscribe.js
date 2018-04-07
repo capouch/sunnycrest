@@ -57,13 +57,54 @@ class SubscribeButton extends React.Component {
 
   // Click handler for Subscribe button
   updateBtn = () =>  {
+    var innerThis = this
     if (isSubscribed) {
       unsubscribeUser()
-      this.setState({label: 'Subscribe'})
-    } else {
-      // Don't subscribe if no notify groups chosen
+        .then(function(subscription) {
+          isSubscribed = false
+          console.log('In unsubscribe ' + subscription)
+          label = isSubscribed?'Unsubscribe':'Subscribe'
+          innerThis.setState((state) => ({label: label}))
+        })
+        .catch(function(error) {
+          console.log('Error unsubscribing', error);
+          isSubscribed = false
+          console.log('In unsubscribe ' + subscription)
+          label = isSubscribed?'Unsubscribe':'Subscribe'
+          innerThis.setState((state) => ({label: label}))
+        })
+      console.log('After unsubscribe ' + isSubscribed)
+      } else {
+      // Create subscription and send to back end
       subscribeUser()
-      this.setState({label: 'Unsubscribe'})
+        .then(function(subscription) {
+          // The subscription was successful
+          // Should we include error checking for this next function?
+          sendSubscriptionToBackEnd(subscription)
+          console.log('Service worked subscribed' + JSON.stringify(subscription))
+          isSubscribed = true
+          swSub = subscription
+          console.log('In subscribe ' + isSubscribed)
+          label = isSubscribed?'Unsubscribe':'Subscribe'
+          innerThis.setState((state) => ({label: label}))
+          console.log("About to return true from subscribe")
+        })
+        .catch(function(error) {
+          if (Notification.permission === 'denied') {
+            // Need to tell user what happened
+            isSubscribed = false
+            console.log('Permission for Notifications was denied');
+            label = isSubscribed?'Unsubscribe':'Subscribe'
+            innerThis.setState((state) => ({label: label}))
+            // subscribeButton.disabled = true;
+          } else {
+            // Need to report to user
+            console.log('Unable to subscribe to push.', error);
+            isSubscribed = false
+            label = isSubscribed?'Unsubscribe':'Subscribe'
+            innerThis.setState((state) => ({label: label}))
+          }
+        })
       }
     }
 
@@ -111,55 +152,19 @@ export default class Subscribe extends React.Component {
 
 function subscribeUser () {
   console.log("Subscribe user " + swSub)
-  swReg.pushManager.subscribe(
+  return swReg.pushManager.subscribe(
       {
       userVisibleOnly: true,
       applicationServerKey: applicationServerKey
       }
     )
-    .then(function(subscription) {
-      // The subscription was successful
-      // subscribeButton.disabled = true;
-      // return sendSubscriptionToServer(subscription);
-      console.log('Service worked subscribed' + JSON.stringify(subscription))
-      sendSubscriptionToBackEnd(subscription)
-      isSubscribed = true
-    })
-    .catch(function(error) {
-      if (Notification.permission === 'denied') {
-        console.log('Permission for Notifications was denied');
-        // subscribeButton.disabled = true;
-      } else {
-        console.log('Unable to subscribe to push.', error);
-        // subscribeButton.disabled = false;
-      }
-    })
 }
 
 function unsubscribeUser () {
   // isSubscribed = false
   console.log ("Unsubscribe user " + swSub)
-  swReg.pushManager.getSubscription()
-  .then(function(subscription) {
-    if (subscription) {
-      return subscription.unsubscribe();
-    }
-  })
-  .catch(function(error) {
-    console.log('Error unsubscribing', error);
-  })
-  .then(function() {
-    // Should this be uncommented?
-    // updateSubscriptionOnServer(null);
-    console.log('User is unsubscribed.');
-    isSubscribed = false;
-    // tagValues = ""
-
-
-    // updateBtn();
-  });
-
-}
+  return swSub.unsubscribe()
+  }
 
 // Service routine to create Uint8 array for subscribe
 function urlB64ToUint8Array(base64String) {

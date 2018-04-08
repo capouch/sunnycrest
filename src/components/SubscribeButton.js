@@ -5,18 +5,18 @@ import Helmet from 'react-helmet'
 
 /*
 **
-**  Unimplemented component for future incorporation into Sunny Crest app
-**
+**  Component to handle Push Manager subscriptions
 */
 
 // Puzzle for someday: why could I use atob() in the service worker w/o problems?
 import b64 from 'base-64'
 
-// This shouldn't be local
+// Component-global variables
 var isSubscribed = false
 var swSub, swReg
 var label
 
+// This key is made to talk to notifier at www.scene-history.org
 const applicationServerPublicKey = 'BJZhZZUqIwbwbGci_pheC3wTwNFcF5btmH7JPCFCF22gk7iJaXmrLznrtBQI_C_HtWZh9BFnwCVKfz7oVgTmaPA'
 const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
 
@@ -26,6 +26,7 @@ const buttonStyle = {
   margin: '10px 10px 10px 0'
 }
 
+// Button, with a variety of DOM API methods to do notification subscriptions
 class SubscribeButton extends React.Component {
   constructor(props) {
     super(props);
@@ -37,16 +38,22 @@ class SubscribeButton extends React.Component {
   }
 
   componentDidMount() {
+    // We need context inside promise handler
     let innerThis = this
+
+    // Get service worker, then use it to test subscribe status
     navigator.serviceWorker.getRegistration('/').then(function(registration) {
       swReg = registration
       swReg.pushManager.getSubscription().then(function (subscription) {
         swSub = subscription
         isSubscribed = (swSub != null)
+        // Develop mode in Gatsby doesn'twork for service workers
+        //   and so lots of debugging was needed
         console.log("Reg object " + swReg)
         console.log("Sub object: " + swSub)
         console.log("Mount check is subscribed: " + isSubscribed)
         console.log('Mount curent state of isSubscribed: ' + isSubscribed)
+        // Set label based on subscribe status
         label = isSubscribed?'Unsubscribe':'Subscribe'
         console.log('Current value of label ' + label)
         console.log('About to set initial button as ' + label)
@@ -58,7 +65,9 @@ class SubscribeButton extends React.Component {
 
   // Click handler for Subscribe button
   updateBtn = () =>  {
+    // Save context for promise handlers
     var innerThis = this
+    // Toggle button; call appropriate handler to sub/unsubscribe
     if (isSubscribed) {
       unsubscribeUser()
         .then(function(subscription) {
@@ -84,6 +93,7 @@ class SubscribeButton extends React.Component {
           sendSubscriptionToBackEnd(subscription)
           console.log('Service worker subscribed' + JSON.stringify(subscription))
           isSubscribed = true
+          // Save for use outside of handler
           swSub = subscription
           console.log('In subscribe ' + isSubscribed)
           label = isSubscribed?'Unsubscribe':'Subscribe'
@@ -91,15 +101,16 @@ class SubscribeButton extends React.Component {
           console.log("About to return true from subscribe")
         })
         .catch(function(error) {
+          // These should create modals to report status (soon)
           if (Notification.permission === 'denied') {
-            // Need to tell user what happened
+            // User has not consented to notifications
             isSubscribed = false
             console.log('Permission for Notifications was denied');
             label = isSubscribed?'Unsubscribe':'Subscribe'
             innerThis.setState((state) => ({label: label}))
             // subscribeButton.disabled = true;
           } else {
-            // Need to report to user
+            // Browser doesn't suport push notifies
             console.log('Unable to subscribe to push.', error);
             isSubscribed = false
             label = isSubscribed?'Unsubscribe':'Subscribe'
@@ -163,6 +174,7 @@ function sendSubscriptionToBackEnd(subscription) {
   bodyObject = Object.assign({}, bodyObject, tagList)
   // console.log('Body object: ' + JSON.stringify(bodyObject))
 
+  // This will eventually be sent to a notification microservice
   return fetch('https://www.scene-history.org/save-subscription/', {
     method: 'POST',
     headers: {
@@ -185,7 +197,7 @@ function sendSubscriptionToBackEnd(subscription) {
   });
 }
 
-// For future reference
+// For future reference; handles different classes of notification
 /*
   // Called for each select/deselect of a topic
 	handleSelectChange = (value) => {

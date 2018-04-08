@@ -2,8 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import SubscribeButton from '../components/SubscribeButton'
 
-// Render composite component - Select widget + Subscribe Button
-
+// Page to hande push notification subscriptions
 const Notify = (props) => (
   <div>
       <Helmet>

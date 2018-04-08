@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import SubscribeButton from '../components/SubscribeButton'
 
-// Page to hande push notification subscriptions
+// Page to handle push notification subscriptions
 const Notify = (props) => (
   <div>
       <Helmet>

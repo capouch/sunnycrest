@@ -46,8 +46,8 @@ const Contact = (props) => (
                         <span className="icon alt fa-home"></span>
                         <h3>Map Search Address</h3>
                         <span>8806 N. SR 71<br />
-                        Raub, Indiana 47942<br />
-                        United States of America</span>
+                        Earl Park, Indiana 47942<br />
+                        USA</span>
                     </div>
                 </section>
             </section>

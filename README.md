@@ -7,7 +7,7 @@ https://sunnycrestfarm.org
 
 ## Installation
 
-You can clone this repo by running the following comand
+You can clone this repo by running the following command
 `git clone https://github.com/capouch/sunnycrest`
 
-Run `gatsby develop` in the terminal to start.
+Run `gatsby develop` in the terminal to start, `gatsby build` for production build, `gatsby serve` to start localhost server.

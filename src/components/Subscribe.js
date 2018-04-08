@@ -1,9 +1,15 @@
-// Module to handle push-notify subscriptions
 import React from "react"
 import PropTypes from 'prop-types'
-import  Link  from "gatsby-link"
+import Link  from "gatsby-link"
+import Helmet from 'react-helmet'
 
-// Puzzle for someday: why could I use atob() previously w/o problems?
+/*
+**
+**  Unimplemented component for future incorporation into Sunny Crest app
+**
+*/
+
+// Puzzle for someday: why could I use atob() in the service worker w/o problems?
 import b64 from 'base-64'
 
 // This shouldn't be local
@@ -15,11 +21,6 @@ const applicationServerPublicKey = 'BJZhZZUqIwbwbGci_pheC3wTwNFcF5btmH7JPCFCF22g
 const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
 
 
-// Figure this out after some sleep!
-/*
-const notifyGroups = ["image", "news", "publish", "program", "meeting"]
-const applicationServerPublicKey = 'BJZhZZUqIwbwbGci_pheC3wTwNFcF5btmH7JPCFCF22gk7iJaXmrLznrtBQI_C_HtWZh9BFnwCVKfz7oVgTmaPA'
-*/
 // Wrap an HTML button into a subscribe buttoncomponent
 const buttonStyle = {
   margin: '10px 10px 10px 0'
@@ -62,14 +63,14 @@ class SubscribeButton extends React.Component {
       unsubscribeUser()
         .then(function(subscription) {
           isSubscribed = false
-          console.log('In unsubscribe ' + subscription)
+          console.log('Regular unsubscribe ' + subscription)
           label = isSubscribed?'Unsubscribe':'Subscribe'
           innerThis.setState((state) => ({label: label}))
         })
         .catch(function(error) {
           console.log('Error unsubscribing', error);
           isSubscribed = false
-          console.log('In unsubscribe ' + subscription)
+          console.log('In unsubscribe error ' + subscription)
           label = isSubscribed?'Unsubscribe':'Subscribe'
           innerThis.setState((state) => ({label: label}))
         })
@@ -118,39 +119,8 @@ class SubscribeButton extends React.Component {
   }
 }
 
-// Render composite component - Select widget + Subscribe Button
-export default class Subscribe extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-	propTypes: {
-		label: PropTypes.string,
-	}
-/*
-  // Called for each select/deselect of a topic
-	handleSelectChange = (value) => {
-		this.setState({ value },function(){
-      tagValues = this.state.value
-      console.log('Value = ' + this.state.value + ' ' + JSON.stringify(tagValues))
-    })
-	}
-  */
-
-  render() {
-    return (
-      <div>
-        <center>
-        <SubscribeButton
-          />
-        </center>
-      </div>
-    )
-  }
-}
-
-
 function subscribeUser () {
+  // Return subscription request promise to caller
   console.log("Subscribe user " + swSub)
   return swReg.pushManager.subscribe(
       {
@@ -161,7 +131,7 @@ function subscribeUser () {
 }
 
 function unsubscribeUser () {
-  // isSubscribed = false
+  // Return promise to calling function
   console.log ("Unsubscribe user " + swSub)
   return swSub.unsubscribe()
   }
@@ -214,3 +184,16 @@ function sendSubscriptionToBackEnd(subscription) {
     console.log(JSON.stringify(responseData.data))
   });
 }
+
+// For future reference
+/*
+  // Called for each select/deselect of a topic
+	handleSelectChange = (value) => {
+		this.setState({ value },function(){
+      tagValues = this.state.value
+      console.log('Value = ' + this.state.value + ' ' + JSON.stringify(tagValues))
+    })
+	}
+  */
+
+  export default SubscribeButton

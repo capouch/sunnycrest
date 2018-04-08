@@ -6,7 +6,6 @@ import Header from '../components/Header'
 import Menu from '../components/Menu'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import Subscribe from '../components/Subscribe'
 class Template extends React.Component {
 
     constructor(props) {

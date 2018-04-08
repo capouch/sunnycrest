@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import SubscribeButton from '../components/Subscribe'
+import SubscribeButton from '../components/SubscribeButton'
 
 // Render composite component - Select widget + Subscribe Button
 

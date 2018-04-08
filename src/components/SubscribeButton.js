@@ -82,7 +82,7 @@ class SubscribeButton extends React.Component {
           // The subscription was successful
           // Should we include error checking for this next function?
           sendSubscriptionToBackEnd(subscription)
-          console.log('Service worked subscribed' + JSON.stringify(subscription))
+          console.log('Service worker subscribed' + JSON.stringify(subscription))
           isSubscribed = true
           swSub = subscription
           console.log('In subscribe ' + isSubscribed)
@@ -161,7 +161,7 @@ function sendSubscriptionToBackEnd(subscription) {
   // Totally cheating here no so as not to break scene-history server
   let tagList = { tags: ["image"] }
   bodyObject = Object.assign({}, bodyObject, tagList)
-  console.log('Body object: ' + JSON.stringify(bodyObject))
+  // console.log('Body object: ' + JSON.stringify(bodyObject))
 
   return fetch('https://www.scene-history.org/save-subscription/', {
     method: 'POST',

@@ -6,8 +6,8 @@ import Header from '../components/Header'
 import Menu from '../components/Menu'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-class Template extends React.Component {
 
+class Template extends React.Component {
     constructor(props) {
         super(props)
         this.state = {

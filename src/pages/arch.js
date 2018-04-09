@@ -34,7 +34,7 @@ const Landing = (props) => (
                             <header className="major">
                                 <h3>Fancy ridge cap preserved</h3>
                             </header>
-                            <p>The original roof on the house was slate.  For unknown reasons, it failed and was replaced in the 1980s.  Fancy dentillated ridge cap</p>
+                            <p>The original roof on the house was slate.  For unknown reasons, it failed and was replaced in the 1980s.  The fancy dentillated ridge cap was preserved, and placed over the shingled ridge.</p>
                         </div>
                     </div>
                 </section>

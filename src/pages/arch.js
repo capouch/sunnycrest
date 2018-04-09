@@ -32,9 +32,9 @@ const Landing = (props) => (
                     <div className="content">
                         <div className="inner">
                             <header className="major">
-                                <h3>What would you call this?</h3>
+                                <h3>Fancy ridge cap preserved</h3>
                             </header>
-                            <p>The original roof on the house was slate.  For unknown reasons, it failed and was replaced in the 1980s.  The owner arranged to have the affordance you see here re-installed after the replacement.  What in the world is it called?</p>
+                            <p>The original roof on the house was slate.  For unknown reasons, it failed and was replaced in the 1980s.  Fancy dentillated ridge cap</p>
                         </div>
                     </div>
                 </section>

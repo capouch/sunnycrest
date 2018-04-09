@@ -11,6 +11,10 @@ isSubscribed = false
 
 console.log("Situation is: " + self.registration ? self.registration.scope : '')
 
+self.addEventListener('message', function(event){
+    console.log("SW Received Message: " + event.data);
+    event.ports[0].postMessage("SW Says 'Hello back!'");
+});
 
 // Let's keep this here for a while just in case we need it
 /*
@@ -54,16 +58,23 @@ self.serviceWorker.ready.then(function(serviceWorkerRegistration) {
 */
 
 self.addEventListener('push', function (event) {
-  thisMessage = JSON.parse(event.data.text())
+  var thisMessage = JSON.parse(event.data.text())
 
   console.log('[Service Worker] Push Received.');
   console.log('This message text: ' + thisMessage.text)
   console.log('URL: ' + thisMessage.url)
   console.log(`[Service Worker] Push had this data: "${event.data}"`);
+  console.log('[Service Worker] as json: ' + JSON.stringify(thisMessage))
 
   const title = 'Sunny Crest';
   const options = {
     body: thisMessage.text,
+    actions: [
+        {
+          action: 'engage-action',
+          title: 'Engage',
+        }
+      ]
     // icon: 'images/icon.png',
     // badge: 'images/badge.png'
     }
@@ -71,6 +82,13 @@ self.addEventListener('push', function (event) {
 })
 
   self.addEventListener('notificationclick', function(event) {
+    if (!event.action) {
+    // Was a normal notification click
+    console.log('Normal Notification Click.');
+      } else {
+        console.log('Action click on ' + event.action)
+      }
+
   console.log('[Service Worker] Notification click Received.');
 
   event.notification.close();

@@ -38,10 +38,17 @@ class SubscribeButton extends React.Component {
   }
 
   componentDidMount() {
+    // See if browser supports push notifications
+    if (!('PushManager' in window)) {
+      console.log("Push not supported on this browser")
+    } else {
+      console.log("Browser supports push")
+    }
     // We need context inside promise handler
     let outerThis = this
 
     // Get service worker, then use it to test subscribe status
+    //  Note: maybe also check browser compat here??
     navigator.serviceWorker.getRegistration('/').then(function(registration) {
       swReg = registration
       swReg.pushManager.getSubscription().then(function (subscription) {
@@ -54,11 +61,11 @@ class SubscribeButton extends React.Component {
         console.log("Mount check is subscribed: " + isSubscribed)
         // Set label based on subscribe status
         label = isSubscribed?'Unsubscribe':'Subscribe'
-        console.log('Current value of label ' + label)
         console.log('About to set initial button as ' + label)
         outerThis.setState((state) => ({label: label}))
       })
     })
+    send_message_to_sw('You old dogface!!')
 
   }
 
@@ -97,23 +104,20 @@ class SubscribeButton extends React.Component {
           console.log('In subscribe ' + isSubscribed)
           label = isSubscribed?'Unsubscribe':'Subscribe'
           outerThis.setState((state) => ({label: label}))
-          console.log("About to return true from subscribe")
         })
         .catch(function(error) {
+          // No good
+          isSubscribed = false
+          label = isSubscribed?'Unsubscribe':'Subscribe'
+          outerThis.setState((state) => ({label: label}))
           // These should create modals to report status (soon)
+          //   and probably also change page verbiage
           if (Notification.permission === 'denied') {
             // User has not consented to notifications
-            isSubscribed = false
             console.log('Permission for Notifications was denied');
-            label = isSubscribed?'Unsubscribe':'Subscribe'
-            outerThis.setState((state) => ({label: label}))
-            // subscribeButton.disabled = true;
           } else {
             // Browser doesn't suport push notifies
             console.log('Unable to subscribe to push.', error);
-            isSubscribed = false
-            label = isSubscribed?'Unsubscribe':'Subscribe'
-            outerThis.setState((state) => ({label: label}))
           }
         })
       }
@@ -195,7 +199,26 @@ function sendSubscriptionToBackEnd(subscription) {
     console.log(JSON.stringify(responseData.data))
   });
 }
+// Experimental code
+function send_message_to_sw(msg){
+    return new Promise(function(resolve, reject){
+        // Create a Message Channel
+        var msg_chan = new MessageChannel();
 
+        // Handler for recieving message reply from service worker
+        msg_chan.port1.onmessage = function(event){
+            if(event.data.error){
+                reject(event.data.error);
+            }else{
+                resolve(event.data);
+                console.log(event.data)
+            }
+        };
+
+        // Send message to service worker along with port for reply
+        navigator.serviceWorker.controller.postMessage("Client 1 says '"+msg+"'", [msg_chan.port2]);
+    });
+}
 // For future reference; handles different classes of notification
 /*
   // Called for each select/deselect of a topic

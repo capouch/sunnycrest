@@ -65,7 +65,7 @@ module.exports = {
     resolve: `gatsby-plugin-offline`,
       options: {
         importScripts: [
-          `./test.js`
+          `./sw-extension.js`
         ],
         cacheId: `sunnycrest-offline`
       }

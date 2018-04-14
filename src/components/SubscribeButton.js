@@ -29,41 +29,52 @@ const buttonStyle = {
 // Button, with a variety of DOM API methods to do notification subscriptions
 class SubscribeButton extends React.Component {
   constructor(props) {
+    let supportsPush = true
     super(props);
     label = isSubscribed?'Unsubscribe':'Subscribe'
+    // Do we suport local storage?  If so, what about push support?
+    if (supports_html5_storage()) {
+      supportsPush = (localStorage.getItem('push') != 'false')
+      console.log("Local storage push support: " + supportsPush)
+    }
+    label = supportsPush?'Subscribe':'No browser support'
     this.state = {
       label: label,
-      enabled: true
+      pushSupport: supportsPush
     }
   }
 
   componentDidMount() {
+    // We need context inside promise handler
+    let outerThis = this
     // See if browser supports push notifications
+    //   Note: Brave lies about this and returns true!!
     if (!('PushManager' in window)) {
       console.log("Push not supported on this browser")
+      this.setState({pushSupport: false})
     } else {
       console.log("Browser supports push")
     }
-    // We need context inside promise handler
-    let outerThis = this
-
     // Get service worker, then use it to test subscribe status
     //  Note: maybe also check browser compat here??
+    console.log('Supports push: ' + this.state.pushSupport)
     navigator.serviceWorker.getRegistration('/').then(function(registration) {
       swReg = registration
-      swReg.pushManager.getSubscription().then(function (subscription) {
-        swSub = subscription
-        isSubscribed = (swSub != null)
-        // Develop mode in Gatsby doesn'twork for service workers
-        //   and so lots of debugging was needed
-        console.log("Reg object " + swReg)
-        console.log("Sub object: " + swSub)
-        console.log("Mount check is subscribed: " + isSubscribed)
-        // Set label based on subscribe status
-        label = isSubscribed?'Unsubscribe':'Subscribe'
-        console.log('About to set initial button as ' + label)
-        outerThis.setState((state) => ({label: label}))
-      })
+      if (outerThis.state.pushSupport) {
+        swReg.pushManager.getSubscription().then(function (subscription) {
+          swSub = subscription
+          isSubscribed = (swSub != null)
+          // Develop mode in Gatsby doesn'twork for service workers
+          //   and so lots of debugging was needed
+          console.log("Reg object " + swReg)
+          console.log("Sub object: " + swSub)
+          console.log("Mount check is subscribed: " + isSubscribed)
+          // Set label based on subscribe status
+          label = isSubscribed?'Unsubscribe':'Subscribe'
+          console.log('About to set initial button as ' + label)
+          outerThis.setState((state) => ({label: label}))
+        })
+      }
     })
     send_message_to_sw('You old dogface!!')
 
@@ -117,7 +128,11 @@ class SubscribeButton extends React.Component {
             console.log('Permission for Notifications was denied');
           } else {
             // Browser doesn't suport push notifies
-            console.log('Unable to subscribe to push.', error);
+            console.log('Unable to subscribe to push.', error)
+            label = 'No browser support'
+            outerThis.setState((state) => ({label: label}))
+            outerThis.setState((state) => ({ pushSupport: false} ))
+            localStorage.setItem('push', 'false')
           }
         })
       }
@@ -128,6 +143,7 @@ class SubscribeButton extends React.Component {
       <button
         className="btn btn-primary js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
         style={buttonStyle}
+        disabled = {!this.state.pushSupport}
         onClick={this.updateBtn}>{this.state.label}</button>
     )
   }
@@ -219,6 +235,15 @@ function send_message_to_sw(msg){
         navigator.serviceWorker.controller.postMessage("Client 1 says '"+msg+"'", [msg_chan.port2]);
     });
 }
+
+// Does browser support local storage?
+  function supports_html5_storage(){
+    try {
+        return 'localStorage' in window && window['localStorage'] !== null
+    } catch(e) {
+        return false;
+    }
+  }
 // For future reference; handles different classes of notification
 /*
   // Called for each select/deselect of a topic

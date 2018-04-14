@@ -69,6 +69,7 @@ self.addEventListener('push', function (event) {
   const title = 'Sunny Crest';
   const options = {
     body: thisMessage.text,
+    // Custom-defined actions allow varied responses
     actions: [
         {
           action: 'engage-action',

@@ -52,6 +52,7 @@ class SubscribeButton extends React.Component {
     if (!('PushManager' in window)) {
       console.log("Push not supported on this browser")
       this.setState({pushSupport: false})
+      this.setState({ label: 'No browser support'})
     } else {
       console.log("Browser supports push")
     }

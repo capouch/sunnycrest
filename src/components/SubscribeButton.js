@@ -29,6 +29,7 @@ const buttonStyle = {
 // Button, with a variety of DOM API methods to do notification subscriptions
 class SubscribeButton extends React.Component {
   constructor(props) {
+    // Assume browser can do push until we learn otherwise
     let supportsPush = true
     super(props);
     label = isSubscribed?'Unsubscribe':'Subscribe'
@@ -49,6 +50,7 @@ class SubscribeButton extends React.Component {
     let outerThis = this
     // See if browser supports push notifications
     //   Note: Brave lies about this and returns true!!
+    //   Also note: we can't do this in constructor; no DOM yet
     if (!('PushManager' in window)) {
       console.log("Push not supported on this browser")
       this.setState({pushSupport: false})
@@ -59,8 +61,10 @@ class SubscribeButton extends React.Component {
     // Get service worker, then use it to test subscribe status
     //  Note: maybe also check browser compat here??
     console.log('Supports push: ' + this.state.pushSupport)
+    // Need the service worker in order to subscribe
     navigator.serviceWorker.getRegistration('/').then(function(registration) {
       swReg = registration
+      // We may already know push is not supported
       if (outerThis.state.pushSupport) {
         swReg.pushManager.getSubscription().then(function (subscription) {
           swSub = subscription
@@ -77,6 +81,7 @@ class SubscribeButton extends React.Component {
         })
       }
     })
+    // Experimental "feature"
     send_message_to_sw('You old dogface!!')
 
   }
@@ -120,7 +125,7 @@ class SubscribeButton extends React.Component {
         .catch(function(error) {
           // No good
           isSubscribed = false
-          label = isSubscribed?'Unsubscribe':'Subscribe'
+          label = 'Unsubscribe'
           outerThis.setState((state) => ({label: label}))
           // These should create modals to report status (soon)
           //   and probably also change page verbiage
@@ -128,7 +133,7 @@ class SubscribeButton extends React.Component {
             // User has not consented to notifications
             console.log('Permission for Notifications was denied');
           } else {
-            // Browser doesn't suport push notifies
+            // Browser won't allow the registration
             console.log('Unable to subscribe to push.', error)
             label = 'No browser support'
             outerThis.setState((state) => ({label: label}))
@@ -216,6 +221,7 @@ function sendSubscriptionToBackEnd(subscription) {
     console.log(JSON.stringify(responseData.data))
   });
 }
+
 // Experimental code
 function send_message_to_sw(msg){
     return new Promise(function(resolve, reject){

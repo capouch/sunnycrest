@@ -15,7 +15,7 @@ const Landing = (props) => (
 
         <BannerLanding />
 
-        <div id="main">
+        <div style={{ margin: "3rem auto", maxWidth: 600, "font-family": "Times New Roman" }} id="main">
             <section id="one">
                 <div className="inner">
                     <header className="major">

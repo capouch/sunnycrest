@@ -11,7 +11,7 @@ const Mission = (props) => (
             <meta name="description" content="Mission Page" />
         </Helmet>
 
-        <div id="main" className="alt">
+        <div style={{ margin: "3rem auto", maxWidth: 600, "font-family": "Times New Roman" }} id="main" className="alt">
             <section id="one">
                 <div className="inner">
                     <header className="major">

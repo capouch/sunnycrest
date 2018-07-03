@@ -33,11 +33,11 @@ export const pageQuery = graphql`
       }
       mongodbOsconBlogposts(id: { eq: $id }) {
         id
+        path
         post {
           childMarkdownRemark {
             frontmatter {
               title
-              path
             }
           html
           }

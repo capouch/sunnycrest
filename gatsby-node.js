@@ -18,9 +18,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           edges {
             node {
               id
+              path
               post {
                 id
-                post 
+                post
               }
             }
           }
@@ -38,7 +39,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           console.log('Whoami? ' + JSON.stringify(edge))
           console.log('We send: ' + edge.node.id)
           createPage({
-            path: '/barn/',
+            path: edge.node.path,
             component: blogPost,
             context: {
               id: edge.node.id

@@ -70,6 +70,14 @@ module.exports = {
         cacheId: `sunnycrest-offline`
       }
     },
+    {
+    resolve: `gatsby-source-mongodb`,
+    options: {
+      dbName: `oscon`,
+      collection: `blogposts`,
+      map: { blogposts: { post: `text/markdown` } },
+    },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,

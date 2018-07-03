@@ -13,12 +13,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     resolve(
       graphql(
         `
-      {
-        allMarkdownRemark(limit: 1000) {
+        {
+        allMongodbOsconBlogposts {
           edges {
             node {
-              frontmatter {
-                path
+              id
+              post {
+                id
+                post 
               }
             }
           }
@@ -32,10 +34,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, edge => {
+        _.each(result.data.allMongodbOsconBlogposts.edges, edge => {
+          console.log('Whoami? ' + JSON.stringify(edge))
+          console.log('We send: ' + edge.node.id)
           createPage({
-            path: edge.node.frontmatter.path,
-            component: blogPost
+            path: '/barn/',
+            component: blogPost,
+            context: {
+              id: edge.node.id
+            }
           })
         })
       })

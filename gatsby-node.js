@@ -14,6 +14,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       graphql(
         `
         {
+        # Strange query is the only one that works!!
         allMongodbOsconBlogposts {
           edges {
             node {

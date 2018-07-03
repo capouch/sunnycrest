@@ -11,9 +11,12 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <div style={{ margin: "3rem auto", maxWidth: 600, "fontFamily": "Times New Roman" }}>
+      <div style={{ margin: "3rem auto", maxWidth: 600, "font-family": "Times New Roman" }}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-
+        <h1>{post.frontmatter.title}</h1>
+        <p>
+          {post.frontmatter.date}
+        </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr/>
       </div>
@@ -36,10 +39,10 @@ export const pageQuery = graphql`
         path
         post {
           childMarkdownRemark {
+            html
             frontmatter {
               title
             }
-          html
           }
         }
       }

@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         // Create blog posts pages.
         _.each(result.data.allMongodbOsconBlogposts.edges, edge => {
-          console.log('Whoami? ' + JSON.stringify(edge))
+          // console.log('Whoami? ' + JSON.stringify(edge))
           // console.log('We send: ' + edge.node.id)
           createPage({
             path: edge.node.path,

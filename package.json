@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-forty",
-  "description": "Gatsby Starter - Forty by HTML5 UP",
+  "name": "sunnycrest",
+  "description": "Sunny Crest Farm",
   "version": "1.0.0",
-  "author": "Hunter Chang",
+  "author": "Brian Capouch, based on work by Hunter Chang",
   "dependencies": {
     "base-64": "^0.1.0",
     "gatsby": "^1.9.273",
@@ -24,7 +24,7 @@
     "hoek": "^5.0.3",
     "lodash": "^4.17.4"
   },
-  "homepage": "https://github.com/ChangoMan/gatsby-starter-forty",
+  "homepage": "https://github.com/capouch/sunnycrest",
   "keywords": [
     "gatsby"
   ],
@@ -32,7 +32,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChangoMan/gatsby-starter-forty.git"
+    "url": "https://github.com/ChangoMan/capouch/sunnycrest"
   },
   "scripts": {
     "dev": "gatsby develop",

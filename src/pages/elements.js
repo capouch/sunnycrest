@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import Helmet from 'react-helmet'
 
 import pic03 from '../assets/images/pic03.jpg'

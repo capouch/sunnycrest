@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 
 class BlogPostTemplate extends React.Component {
@@ -26,7 +26,7 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate
 
-export const pageQuery = graphql`
+export const dbQuery = graphql`
   query BlogPostByPath($id: String!) {
     site {
       siteMetadata {

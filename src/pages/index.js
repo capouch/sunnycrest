@@ -1,7 +1,8 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link, graphql }  from 'gatsby'
 import Helmet from 'react-helmet'
 import Banner from '../components/Banner'
+import Layout from "../components/layout"
 
 import pic01 from '../assets/images/pic01.jpg'
 import pic02 from '../assets/images/pic02.jpg'
@@ -20,6 +21,7 @@ class HomeIndex extends React.Component {
         const siteDescription = this.props.data.site.siteMetadata.description
 
         return (
+          <Layout>
             <div>
                 <Helmet>
                     <title>{siteTitle}</title>
@@ -27,7 +29,6 @@ class HomeIndex extends React.Component {
                 </Helmet>
 
                 <Banner />
-
                 <div id="main">
                     <section id="one" className="tiles">
                         <article style={{backgroundImage: `url(${pic01})`}}>
@@ -105,22 +106,23 @@ class HomeIndex extends React.Component {
                             </ul>
                         </div>
                     </section>
-                </div>
 
+                </div>
             </div>
+          </Layout>
         )
     }
 }
 
 export default HomeIndex
 
-export const pageQuery = graphql`
-    query PageQuery {
-        site {
+export const pageQuery =  graphql`
+        query SiteQuery {
+          site {
             siteMetadata {
                 title
                 description
             }
+          }
         }
-    }
-`
+        `

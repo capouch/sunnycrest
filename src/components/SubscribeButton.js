@@ -1,6 +1,5 @@
 import React from "react"
-import PropTypes from 'prop-types'
-import Link  from "gatsby-link"
+import Link  from "gatsby"
 import Helmet from 'react-helmet'
 
 /*
@@ -102,7 +101,7 @@ class SubscribeButton extends React.Component {
         .catch(function(error) {
           console.log('Error unsubscribing', error);
           isSubscribed = false
-          console.log('In unsubscribe error ' + subscription)
+          // console.log('In unsubscribe error ' + subscription)
           label = isSubscribed?'Unsubscribe':'Subscribe'
           outerThis.setState((state) => ({label: label}))
         })

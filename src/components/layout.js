@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, withPrefix } from 'gatsby-link'
+import { Link, withPrefix } from 'gatsby'
 import '../assets/scss/main.scss'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
@@ -52,17 +52,13 @@ class Template extends React.Component {
                 </Helmet>
                 <div id="wrapper">
                     <Header onToggleMenu={this.handleToggleMenu} />
-                    {children()}
+                    {children}
                     <Footer />
                 </div>
                 <Menu onToggleMenu={this.handleToggleMenu} />
             </div>
         )
     }
-}
-
-Template.propTypes = {
-    children: React.PropTypes.func
 }
 
 export default Template

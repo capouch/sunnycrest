@@ -14,6 +14,7 @@ import pic13 from '../assets/images/pic13.jpg'
 import pic14 from '../assets/images/pic14.jpg'
 
 
+// This is the entry point for the site
 class HomeIndex extends React.Component {
     render() {
         const siteTitle = this.props.data.site.siteMetadata.title

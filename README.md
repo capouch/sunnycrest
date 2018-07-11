@@ -11,3 +11,5 @@ You can clone this repo by running the following command
 `git clone https://github.com/capouch/sunnycrest`
 
 Run `gatsby develop` in the terminal to start, `gatsby build` for production build, `gatsby serve` to start localhost server.
+
+This branch requires a running MongoDB instance as noted in the plugin configuration options.

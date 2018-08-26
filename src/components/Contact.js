@@ -31,7 +31,7 @@ const Contact = (props) => (
                     <div className="contact-method">
                         <span className="icon alt fa-envelope"></span>
                         <h3>Email</h3>
-                        <a href="mailto:brianc@palaver.net?Subject=Email from Sunny Crest" target="_blank">brianc@palaver.net</a>
+                        <a href="mailto:brianc@independence-church.org?Subject=Email from Sunny Crest" target="_blank">brianc@palaver.net</a>
                     </div>
                 </section>
                 <section>

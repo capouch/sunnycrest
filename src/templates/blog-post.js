@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
+import Layout from "../components/layout"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -12,13 +13,15 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div style={{ margin: "3rem auto", maxWidth: 600, "font-family": "Times New Roman" }}>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
-        <p>
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr/>
+        <Layout>
+          <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+          <h1>{post.frontmatter.title}</h1>
+          <p>
+            {post.frontmatter.date}
+          </p>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <hr/>
+        </Layout>
       </div>
     )
   }

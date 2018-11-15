@@ -68,6 +68,7 @@ module.exports = {
     options: {
       dbName: `oscon`,
       collection: `blogposts`,
+      server: { address: 'demo.oscon-graphql.net', port: 27017},
       map: { blogposts: { post: `text/markdown` } },
     },
     },

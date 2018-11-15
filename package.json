@@ -5,7 +5,7 @@
   "author": "Brian Capouch, based on work by Hunter Chang",
   "dependencies": {
     "base-64": "^0.1.0",
-    "gatsby": "^2.0.0-beta.17",
+    "gatsby": "^2.0.0-rc.28",
     "gatsby-image": "next",
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-manifest": "next",
@@ -13,9 +13,9 @@
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "next",
     "gatsby-plugin-sharp": "next",
-    "gatsby-remark-copy-linked-files": "next",
-    "gatsby-remark-images": "next",
-    "gatsby-source-filesystem": "next",
+    "gatsby-remark-copy-linked-files": "^2.0.0-rc.5",
+    "gatsby-remark-images": "^2.0.1-rc.5",
+    "gatsby-source-filesystem": "^2.0.1-rc.6",
     "gatsby-source-mongodb": "next",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
@@ -43,5 +43,8 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+  },
+  "devDependencies": {
+    "@babel/preset-flow": "^7.0.0"
   }
 }

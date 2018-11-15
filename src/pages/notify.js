@@ -1,10 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import SubscribeButton from '../components/SubscribeButton'
+import Layout from "../components/layout"
 
 // Page to handle push notification subscriptions
 const Notify = (props) => (
   <div>
+    <Layout>
       <Helmet>
           <title>Notifications - Sunny Crest</title>
           <meta name="description" content="Subscription Page" />
@@ -22,7 +24,7 @@ const Notify = (props) => (
               </div>
           </section>
       </div>
-
+    </Layout>
   </div>
 )
 

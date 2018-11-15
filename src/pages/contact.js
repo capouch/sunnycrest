@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import Contact from '../components/Contact'
+import Layout from "../components/layout"
 
 const Generic = (props) => (
     <div>
+      <Layout>
         <Helmet>
             <title>Generic - Sunny Crest</title>
             <meta name="description" content="Generic Page" />
@@ -20,7 +22,7 @@ const Generic = (props) => (
                 </div>
             </section>
         </div>
-
+      </Layout>
     </div>
 )
 

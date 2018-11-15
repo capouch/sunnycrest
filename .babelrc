@@ -1,6 +1,4 @@
 {
-  cacheDirectory: true,
-  babelrc: false,
   presets: [
     [
       "@babel/preset-env",
@@ -36,7 +34,6 @@
       {
         helpers: true,
         regenerator: true,
-        polyfill: false,
       },
     ],
   ],

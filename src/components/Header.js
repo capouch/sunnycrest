@@ -10,8 +10,9 @@ const Header = (props) => (
     </header>
 )
 
+/*
 Header.propTypes = {
     onToggleMenu: React.PropTypes.func
 }
-
+*/
 export default Header

@@ -9,13 +9,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/posts`,
-        name: "posts",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
       },
@@ -69,6 +62,14 @@ module.exports = {
         ],
         cacheId: `sunnycrest-offline`
       }
+    },
+    {
+    resolve: `gatsby-source-mongodb`,
+    options: {
+      dbName: `oscon`,
+      collection: `blogposts`,
+      map: { blogposts: { post: `text/markdown` } },
+    },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

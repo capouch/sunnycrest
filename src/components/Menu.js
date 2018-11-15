@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 
 const Menu = (props) => (
     <nav id="menu">
@@ -15,9 +15,9 @@ const Menu = (props) => (
         <a className="close" onClick={props.onToggleMenu} href="javascript:;">Close</a>
     </nav>
 )
-
+/*
 Menu.propTypes = {
     onToggleMenu: React.PropTypes.func
 }
-
+*/
 export default Menu

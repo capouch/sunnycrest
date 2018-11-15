@@ -1,13 +1,15 @@
 import React from 'react'
-import Link from 'gatsby-link'
+  import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import BannerLanding from '../components/BannerLanding'
+import Layout from "../components/layout"
 
 import pic08 from '../assets/images/pic08.jpg'
 import pic09 from '../assets/images/pic09.jpg'
 
 const Landing = (props) => (
     <div>
+      <Layout>
         <Helmet>
             <title>Architecture - Sunny Crest</title>
             <meta name="description" content="Landing Page" />
@@ -15,7 +17,7 @@ const Landing = (props) => (
 
         <BannerLanding />
 
-        <div style={{ margin: "3rem auto", maxWidth: 600, "font-family": "Times New Roman" }} id="main">
+        <div style={{ margin: "3rem auto", maxWidth: 600, "fontFamily": "Times New Roman" }} id="main">
             <section id="one">
                 <div className="inner">
                     <header className="major">
@@ -56,7 +58,7 @@ const Landing = (props) => (
                   </section>
             </section>
         </div>
-
+      </Layout>
     </div>
 )
 

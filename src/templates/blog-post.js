@@ -1,22 +1,27 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
+import Layout from "../components/layout"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    console.log(JSON.stringify(this.props.data))
+    const post = this.props.data.mongodbOsconBlogposts.post.childMarkdownRemark
+    console.log("Post data is: " + JSON.stringify(post))
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
       <div style={{ margin: "3rem auto", maxWidth: 600, "font-family": "Times New Roman" }}>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
-        <p>
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr/>
+        <Layout>
+          <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+          <h1>{post.frontmatter.title}</h1>
+          <p>
+            {post.frontmatter.date}
+          </p>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <hr/>
+        </Layout>
       </div>
     )
   }
@@ -24,21 +29,25 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate
 
-export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
+export const dbQuery = graphql`
+  query BlogPostByPath($id: String!) {
     site {
       siteMetadata {
         title
         author
+        }
       }
-    }
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      id
-      html
-      frontmatter {
-        title
-
+      mongodbOsconBlogposts(id: { eq: $id }) {
+        id
+        path
+        post {
+          childMarkdownRemark {
+            html
+            frontmatter {
+              title
+            }
+          }
+        }
       }
-    }
   }
 `

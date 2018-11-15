@@ -4,8 +4,8 @@ const path = require("path")
 const select = require(`unist-util-select`)
 const fs = require(`fs-extra`)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     const pages = []
@@ -13,12 +13,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     resolve(
       graphql(
         `
-      {
-        allMarkdownRemark(limit: 1000) {
+        {
+        # Strange query is the only one that works!!
+        allMongodbOsconBlogposts {
           edges {
             node {
-              frontmatter {
-                path
+              id
+              path
+              post {
+                id
+                post
               }
             }
           }
@@ -32,10 +36,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, edge => {
+        _.each(result.data.allMongodbOsconBlogposts.edges, edge => {
+          // console.log('Whoami? ' + JSON.stringify(edge))
+          // console.log('We send: ' + edge.node.id)
           createPage({
-            path: edge.node.frontmatter.path,
-            component: blogPost
+            path: edge.node.path,
+            component: blogPost,
+            context: {
+              id: edge.node.id
+            }
           })
         })
       })

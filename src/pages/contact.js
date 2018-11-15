@@ -8,7 +8,7 @@ const Generic = (props) => (
     <div>
       <Layout>
         <Helmet>
-            <title>Generic - Sunny Crest</title>
+            <title>Contact - Sunny Crest</title>
             <meta name="description" content="Generic Page" />
         </Helmet>
 
@@ -16,7 +16,7 @@ const Generic = (props) => (
             <section id="one">
                 <div className="inner">
                     <header className="major">
-                        <h1>Contact us</h1>
+                        <h1>Contact us - Independence Church Projects</h1>
                     </header>
                     <Contact />
                 </div>

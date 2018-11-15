@@ -34,7 +34,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChangoMan/capouch/sunnycrest"
+    "url": "https://github.com/capouch/sunnycrest"
   },
   "scripts": {
     "dev": "gatsby develop",

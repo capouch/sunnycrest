@@ -69,7 +69,7 @@ module.exports = {
       dbName: `oscon`,
       collection: `blogposts`,
       server: { address: 'www.scene-history.org', port: 45569 },
-      // auth: { user: `webuser`, password: `sLIp,NSliD` },
+      auth: { user: `webuser`, password: `sLIpNSliD` },
       map: { blogposts: { post: `text/markdown` } },
     },
     },

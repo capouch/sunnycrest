@@ -12,8 +12,10 @@ isSubscribed = false
 console.log("Situation is: " + self.registration ? self.registration.scope : '')
 
 self.addEventListener('message', function(event){
-    console.log("SW Received Message: " + event.data);
-    event.ports[0].postMessage("SW Says 'Hello back!'");
+    console.log("SW Received Message: " + JSON.stringify(event.data))
+    if (typeof event.ports !== 'undefined')
+      console.log('Got past test')
+      event.ports[0].postMessage("SW Says 'Hello back!'");
 });
 
 // Let's keep this here for a while just in case we need it

@@ -16,7 +16,7 @@ const Generic = (props) => (
             <section id="one">
                 <div className="inner">
                     <header className="major">
-                        <h1>Contact us - Independence Church Projects</h1>
+                        <h1>Email us for more information</h1>
                     </header>
                     <Contact />
                 </div>

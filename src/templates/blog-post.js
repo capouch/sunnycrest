@@ -6,9 +6,9 @@ import Layout from "../components/layout"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log(JSON.stringify(this.props.data))
+    { /* console.log(JSON.stringify(this.props.data)) */ }
     const post = this.props.data.mongodbOsconBlogposts.post.childMarkdownRemark
-    console.log("Post data is: " + JSON.stringify(post))
+    { /* console.log("Post data is: " + JSON.stringify(post)) */ }
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (

@@ -8,6 +8,7 @@ const Contact = (props) => (
                 <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                     { /* This is also required for netlify */ }
                     <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="bot-field" />
                     <div data-netlify-recaptcha="true"></div>
                     <div className="field half first">
                         <label htmlFor="name">Name</label>

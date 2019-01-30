@@ -5,7 +5,7 @@ const Contact = (props) => (
         <div className="inner">
             <section>
                 { /* Added netlify form foo to form attribute */ }
-                <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" data-netlify-recaptcha="true" >
                     { /* This is also required for netlify */ }
                     <input type="hidden" name="form-name" value="contact" />
                     <p class="hidden">

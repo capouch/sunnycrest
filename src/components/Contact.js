@@ -7,7 +7,7 @@ const Contact = (props) => (
                 { /* Added netlify form foo to form attribute */ }
                 <form name="contact" method="post" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field">
                     { /* This is also required for netlify */ }
-                    <input type="hidden" name="form-name" value="contact" />
+                    <input class="hidden" name="form-name" value="contact" />
                     <p type="hidden">
                       <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
                     </p>
@@ -24,6 +24,7 @@ const Contact = (props) => (
                         <textarea name="message" id="message" rows="6"></textarea>
                     </div>
                     <ul className="actions">
+                        <div data-netlify-recaptcha="true"></div>
                         <li><input type="submit" value="Send Message" className="special" /></li>
                         <li><input type="reset" value="Clear" /></li>
                     </ul>

@@ -8,9 +8,6 @@ const Contact = (props) => (
                 <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" >
                     { /* This is also required for netlify */ }
                     <input type="hidden" name="form-name" value="contact" />
-                    <p class="hidden">
-                      <label>Don’t fill this out if you're human: <input name="bot-field" />      </label>
-                    </p>
                     <div className="field half first">
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" id="name" />

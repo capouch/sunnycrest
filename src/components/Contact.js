@@ -39,7 +39,7 @@ const Contact = (props) => (
                     <div className="contact-method">
                         <span className="icon alt fa-phone"></span>
                         <h3>Phone</h3>
-                        <span>(212) 655-3084</span>
+                        <span>(267) 350-8181</span>
                     </div>
                 </section>
                 <section>

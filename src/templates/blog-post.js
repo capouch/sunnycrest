@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 class BlogPostTemplate extends React.Component {
   render() {
     { /* console.log(JSON.stringify(this.props.data)) */ }
-    let post = this.props.data.mongodbOsconBlogposts.post.childMarkdownRemark
+    const post = this.props.data.mongodbOsconBlogposts.post.childMarkdownRemark
     { /* console.log("Post data is: " + JSON.stringify(post)) */ }
 
     { /* 4/21/23 Try this regex to fix Markdown bug relative to jpg path 

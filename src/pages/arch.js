@@ -1,5 +1,5 @@
 import React from 'react'
-  import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import BannerLanding from '../components/BannerLanding'
 import Layout from "../components/layout"

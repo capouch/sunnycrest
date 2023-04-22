@@ -56,12 +56,6 @@ module.exports = {
     },
     {
     resolve: `gatsby-plugin-offline`,
-      options: {
-        importScripts: [
-          `./sw-extension.js`
-        ],
-        cacheId: `sunnycrest-offline`
-      }
     },
     {
     resolve: `gatsby-source-mongodb`,

@@ -40,10 +40,10 @@ class HomeIndex extends React.Component {
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
                             <header className="major">
-                                <h3>Old House</h3>
+                                <h3>Carriage House</h3>
                                 <p>On the farm since at least 1872</p>
                             </header>
-                            <Link to="/old-house" className="link primary"></Link>
+                            <Link to="/carriage-house" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic03})`}}>
                             <header className="major">
